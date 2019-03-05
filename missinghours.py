@@ -2,7 +2,6 @@ import requests
 import datetime
 import calendar
 import json
-import functools
 import sys
 from docopt import docopt
 
@@ -49,7 +48,9 @@ j = requests.get(
 ).json()
 
 print(j['time_entries'])
-total_hours = functools.reduce(lambda a, b: a['hours']+b['hours'], j['time_entries'])
+total_hours = 0
+for time_entry in j['time_entries']:
+	total_hours += time_entry['hours']
 print(total_hours)
 expected_hours = min(month_hours, len(j['time_entries']) * 8)
 print(expected_hours)
@@ -60,6 +61,6 @@ print(hours_diff_total)
 print()
 
 if hours_diff < 0:
-    print(f'You are {hours_diff} hours behind. {hours_diff_total} hours for the entire month.')
+    print('You are {:0.2f} hours behind. {:0.2f} hours for the entire month.'.format(hours_diff, hours_diff_total))
 else:
-    print(f'You are {hours_diff} hours ahead. {hours_diff_total} hours for the entire month.')
+    print('You are {:0.2f} hours ahead. {:0.2f} hours for the entire month.'.format(hours_diff, hours_diff_total))
