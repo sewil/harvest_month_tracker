@@ -34,10 +34,10 @@ print(dateTo)
 
 j = requests.get(f'http://api.arbetsdag.se/v1/dagar.json?fran={dateFrom}&till={dateTo}&key={workday_token}&id=1234').json()
 print(j)
-week_days = j['antal_vardagar']
-print(week_days)
-month_hours = week_days * 8
 print(month_hours)
+workdays = j['antal_arbetsdagar']
+print(workdays)
+month_hours = workdays * 8
 
 j = requests.get(
     f'https://api.harvestapp.com/v2/time_entries?from={dateFrom}&to={dateTo}',
