@@ -67,7 +67,12 @@ hours_diff_total = total_hours-month_hours
 debugprint(hours_diff_total)
 debugprint('')
 
-if hours_diff < 0:
-    print('You are {:0.2f} hours behind. {:0.2f} hours for the entire month.'.format(hours_diff, hours_diff_total))
+if hours_diff != 0 or hours_diff_total != 0:
+    print('You are {:0.2f} hours {} schedule. {:0.2f} hours {} for the entire month.'.format(
+		hours_diff,
+		'ahead of' if hours_diff > 0 else 'behind',
+		hours_diff_total,
+		'ahead' if hours_diff_total > 0 else 'remaining'
+	))
 else:
-    print('You are {:0.2f} hours ahead. {:0.2f} hours for the entire month.'.format(hours_diff, hours_diff_total))
+	print('You are on schedule!')
