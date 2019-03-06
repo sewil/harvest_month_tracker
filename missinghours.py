@@ -8,7 +8,7 @@ from docopt import docopt
 arguments = docopt("""Missing Hours.
 
 Usage:
-  missinghours.py <harvest-api-token> <harvest-account-id> <workday-token> [--debug]
+  missinghours.py <harvest-api-token> <harvest-account-id> [--debug]
 
 Options:
   -h, --help        Show this screen.
@@ -24,7 +24,7 @@ def debugprint(message):
 
 harvest_api_token = arguments['<harvest-api-token>']
 harvest_account_id = arguments['<harvest-account-id>']
-workday_token = arguments['<workday-token>']
+workday_token = '6beda5db0166cdf21a74ad4a85b6772c241e1e26'
 debugprint(arguments)
 debugprint(harvest_api_token)
 debugprint(harvest_account_id)
