@@ -4,7 +4,6 @@ This script checks your worked time in harvest and compares it to the full-time 
 # Requirements
 - Python 3
 - Harvest account
-- Arbetsdag.se account
 
 # Dependencies
 - [Requests](http://docs.python-requests.org/en/master/)
@@ -16,11 +15,9 @@ pip install requests docopt
 ```
 
 # Usage
-`missinghours.py <harvest-api-token> <harvest-account-id> <workday-token>`
+```
+missinghours.py <harvest-api-token> <harvest-account-id> [--debug]
+```
 
 ## Harvest Token and Account ID
 Go to the [Harvest Developer Tools](https://id.getharvest.com/developers) and create a personal access token to retrieve the Account ID and Token.
-
-## Workday Token
-The workday token can be retrieved by registrering on http://www.arbetsdag.se/.
-Check out their [API](http://www.arbetsdag.se/api) for more information.
